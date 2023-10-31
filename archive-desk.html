@@ -1,28 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-<style>
-
-body {
-        font-family: "Baskerville", serif;
-        padding: 0;
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="images/bw-fav2.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BlueWorldArchive</title>
+    <style>
+      * {
         margin: 0;
-        color: #fff;
-        width: 100vw;
-        background: #282828;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-text-size-adjust: none;
-        overflow: hidden;
+        box-sizing: border-box;
       }
-      
-      img {
-        display: block;
-        width: 100%;
+      body,
+      .table {
         height: 100vh;
+      }
+      body {
+        overflow-y: hidden;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .table {
+        position: relative;
+        /* perspective: 200px; */
+      }
+      iframe {
+        height: 100%;
+        width: 100%;
+        background-color: #fff;
+        visibility: hidden;
+      }
+      iframe.vissible {
+        visibility: visible;
+      }
+      .list-link {
+        font-size: 24px;
+        padding-top: 30px;
+      }
+      .list-link.hide {
+        display: none;
+      }
+
+      .wrapper {
+        width: 600px;
+        max-height: 90vh;
+        margin: 0 auto;
+        position: absolute;
+        top: 31%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotateX(1deg) scale(0.3);
+        transition: 2s;
+      }
+      .wrapper.up {
+        top: 10px;
+        transform: translate(-50%, -50%) rotateX(1deg) scale(1);
+      }
+
+      .ipad {
+        background: #202020;
+        width: 95%;
+        height: 0;
+        padding-top: 120%;
+        margin: 0 auto 4em auto;
+        border-radius: 1em;
+        position: absolute;
+        cursor: pointer;
+      }
+
+      .camera {
+        position: absolute;
+        top: 4%;
+        left: 49.25%;
+        background: #3f3f3f;
+        width: 1.5%;
+        height: 0;
+        padding-top: 1.5%;
+        border-radius: 50%;
+      }
+
+      .appleicon {
+        padding-top: 25%;
+        opacity: 0;
+        /* animation: unhide 5s infinite alternate; */
+      }
+
+      .appleicon img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .text {
+        opacity: 0;
+        font-size: 1.25rem;
+        text-align: center;
+        
+        /* animation: unhide 5s infinite alternate; */
+      }
+
+      .screen {
+       
+        background: lightgrey;
+        width: 82.5%;
+        height: 82.5%;
+        position: absolute;
+        top: 8.75%;
+        left: 8.75%;
+        font-family: sans-serif;
+        /* animation: lighten 5s infinite alternate; */
+      }
+
+      .button {
+        position: absolute;
+        bottom: 1.5%;
+        left: 46%;
+        background: #3f3f3f;
+        /* border: 1px solid #3f3f3f; */
+        width: 7%;
+        height: 0;
+        padding-top: 7%;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      .square {
+        position: absolute;
+        top: 27.5%;
+        left: 27.5%;
+        border: 2px solid #d7d7d7;
+        border-radius: 0.3em;
+        width: 45%;
+        height: 45%;
+      }
+
+      @keyframes lighten {
+        0%,
+        45% {
+          background: #2f2f2f;
+        }
+        65%,
+        100% {
+          background: #f7f7f7;
+        }
+      }
+
+      @keyframes unhide {
+        0%,
+        55% {
+          opacity: 0;
+        }
+        75%,
+        100% {
+          opacity: 1;
+        }
       }
 
       .link {
@@ -30,8 +161,9 @@ body {
         z-index: 1000;
         font-size: 18px;
         font-weight: bold;
-        color: white;
+        color: whitesmoke;
         text-decoration: none;
+        font-family: "Baskerville", serif;
       }
 
       #link-home {
@@ -40,22 +172,67 @@ body {
       }
 
 
-
-
-
-</style>
-
-</head>
-
-
-
-<body>
+    </style>
+  </head>
+  <body>
     <a href="home.html" id="link-home" class="link" title="home">home</a>
-    <img src="images/archive-desk-dark.jpg"/>
 
+    <div class="table">
+      <img src="images/archive1.jpg" />
+      <div class="wrapper">
+        <div class="ipad">
+          <div class="camera"></div>
+          <div class="screen">
+            <ul class="list-link">
+              <!-- <li>
+                <a href="https://editor.e-flux-systems.com/files/506238_e-flux-notes-a-sick-planet.pdf"
+                  >A Sick Planet by Guy Debord (1971)</a>
+                
+              </li> -->
+              <li>
+                <a href="https://web.stanford.edu/~davies/Symbsys100-Spring0708/Marx-Commodity-Fetishism.pdf">The Fetishism of Commodities and the Secret Thereof by Karl Marx (1867)</a>
+              </li>
+            </ul>
+            <iframe src="" class="ipad-frame" frameborder="0"></iframe>
+          </div>
+          <div class="button">
+            <div class="square"></div>
+          </div>
+        </div>
+      </div>
     
-
-
-    
-</body>
+    </div>
+    <script>
+      const wrapper = document.querySelector(".wrapper");
+      const ipad = document.querySelector(".ipad");
+      const listLink = document.querySelector(".list-link");
+      const iframe = document.querySelector("iframe");
+      const page = document.querySelector(".table");
+      const button = document.querySelector(".button");
+      listLink.addEventListener("click", function (e) {
+        e.preventDefault();
+        const target = e.target;
+        if (target.tagName === "A") {
+          const href = target.getAttribute("href");
+          iframe.setAttribute("src", href);
+          iframe.classList.add("vissible");
+          listLink.classList.add("hide");
+        }
+      });
+      ipad.addEventListener("click", function () {
+        wrapper.classList.add("up");
+      });
+      page.addEventListener("click", function (e) {
+        const target = e.target;
+        if (!target.closest('.wrapper')) {
+          wrapper.classList.remove("up");
+        }
+      });
+      button.addEventListener("click", function (e) {
+        e.stopPropagation();
+        iframe.classList.remove("vissible");
+        listLink.classList.remove("hide");
+      });
+    </script>
+  </body>
 </html>
