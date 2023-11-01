@@ -40,6 +40,10 @@
         display: flex;
         background: #282828;
         height: 100vh;
+        transition: opacity 4s;
+      }
+      .container.fade-out {
+        opacity: 0;
       }
 
       .image-container img {
@@ -341,7 +345,11 @@
       areaLinks.forEach((area) => {
         area.addEventListener("click", function () {
           const link = this.getAttribute("data-link");
-          window.location.href = link;
+          const container = document.querySelector('.container');
+          container.classList.add('fade-out');
+          setTimeout(function() {
+            window.location.href = link;
+          }, 4000);
         });
       });
     </script>
