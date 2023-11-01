@@ -32,6 +32,7 @@
         background: #282828;
         height: 100vh;
         transition: opacity 4s;
+        animation: fadeIn 4s;
       }
       .container.fade-out {
         opacity: 0;
@@ -185,6 +186,14 @@
       }
       .arrow-area:hover + .area-link {
         fill: rgba(255,255,255,0.1);
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
       }
     </style>
   </head>

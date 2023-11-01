@@ -46,7 +46,7 @@
       }
 
       .wrapper {
-        width: 600px;
+        width: 80vmin;
         max-height: 90vh;
         margin: 0 auto;
         position: absolute;
@@ -54,6 +54,11 @@
         left: 46%;
         transform: translate(-50%, -50%) rotateX(1deg) scale(0.25);
         transition: 2s;
+      }
+      @media screen and (max-width: 600px) {
+        .wrapper {
+          transform: translate(-50%, -50%) rotateX(1deg) scale(0.5);
+        }
       }
       .wrapper.up {
         top: 10px;
