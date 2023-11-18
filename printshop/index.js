@@ -4,7 +4,7 @@ btnBuy.forEach((btn) => {
     const name = this.getAttribute('data-name');
     // Load the publishable key from the server. The publishable key
     // is set in your .env file.
-    const { publishableKey } = await fetch("http://localhost:4242/config").then(
+    const { publishableKey } = await fetch("https://h12emunxp4.execute-api.us-east-1.amazonaws.com/dev/config").then(
       (r) => r.json()
     );
     if (!publishableKey) {
@@ -22,7 +22,7 @@ btnBuy.forEach((btn) => {
     // initialize the instance of Elements below. The PaymentIntent settings configure which payment
     // method types to display in the PaymentElement.
     const { error: backendError, clientSecret } = await fetch(
-      `http://localhost:4242/create-payment-intent?amount=${amount}&name=${name}`
+      `https://h12emunxp4.execute-api.us-east-1.amazonaws.com/dev/create-payment-intent?amount=${amount}&name=${name}`
     ).then((r) => r.json());
     // if (backendError) {
     //   addMessage(backendError.message);
