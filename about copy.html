@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="images/bw-fav2.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About BlueWorldGallery</title>
+    <style>
+      body {
+        font-family: "Baskerville", serif;
+        width: auto;
+        height: auto;
+        margin: 100px 30px 0;
+        background: #282828;
+        font-size: 18px;
+        color: whitesmoke;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-text-size-adjust: none;
+      }
+
+      a:link {
+        color: white;
+      }
+
+      a:visited {
+        color: white;
+      }
+
+      .link {
+        position: fixed;
+        z-index: 1000;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        text-decoration: none;
+      }
+
+      #link-home {
+        top: 10px;
+        left: 30px;
+      }
+
+      #link-insta {
+        top: 10px;
+        right: 30px;
+      }
+
+      #link-printify {
+        top: 40px;
+        right: 30px;
+      }
+
+      .about-text {
+        max-width: 310px;
+      }
+
+      .tooltip {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        font-weight: bolder;
+      }
+
+      .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 180px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -90px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="home.html" id="link-home" class="link" title="home">home</a>
+    <!-- <a
+      href="https://www.instagram.com/blueworld.gallery/"
+      id="link-insta"
+      class="link" 
+      title="instagram"
+      >instagram</a
+    > -->
+
+    <p class="about-text">
+      
+      Blue World Gallery is a digital art gallery project conceptualized by Kaja Silverman and realized by the <span class="tooltip" title="
+      Creative Direction: Kaja Silverman
+      Cordination: Austin Mayer 
+      3D Graphics: Marcos Hering, Katherine Sullivan 
+      Unity Development: Colin Tossman, Gabriel Munnich 
+      UX/UI: Nathan Gassaway, Evan Hall, Min Park
+      Web Development: Yurii Shevchuk">Blue World Studio</span>. For a description of the project, see the
+      <a href="images/bw-slideshow.pdf" title="Blue World Gallery Slideshow PDF"
+        >Blue World Gallery Slideshow PDF</a>. Blue World Gallery has been made possible through the generous support of the <a href="https://www.mellon.org/" title="Mellon Foundation">Mellon Foundation</a>. 
+        To stay up to date on all things Blue World please follow us on <a href="https://www.instagram.com/blueworld.gallery/">Instagram</a>. <video width="320" height="240" autoplay muted>
+          <source src="images/bwsign01.mp4" type="video/mp4">
+          </video
+      </p>
+    <br>
+    
+
+  </body>
+</html>
