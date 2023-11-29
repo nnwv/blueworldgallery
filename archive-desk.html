@@ -18,11 +18,18 @@
         overflow-y: hidden;
         background-color: #000;
       }
-      img {
+      .bg {
+        position: absolute;
+        top: -13px;
+        left: 0;
+        width: 100vw;
+        z-index: -1;
+      }
+      /* img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-      }
+      } */
       .table {
         position: relative;
         animation: fadeIn 4s forwards;
@@ -103,12 +110,11 @@
         opacity: 0;
         font-size: 1.25rem;
         text-align: center;
-        
+
         /* animation: unhide 5s infinite alternate; */
       }
 
       .screen {
-       
         background: lightgrey;
         width: 82.5%;
         height: 82.5%;
@@ -187,15 +193,36 @@
         top: 10px;
         left: 30px;
       }
-
-
+      .area-link {
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
     <a href="home.html" id="link-home" class="link" title="home">home</a>
 
     <div class="table">
-      <img src="images/archive1.jpg" />
+      <div>
+        <img src="images/archive1.jpg" class="bg" />
+        <svg xmlns="http://www.w3.org/2000/svg" class="bg" viewBox="0 0 3200 1800" preserveAspectRatio="xMinYMin slice">
+          <defs>
+            <style>
+              .cls-1 {
+                fill: #fff;
+                stroke: #000;
+                stroke-miterlimit: 10;
+              }
+            </style>
+          </defs>
+          <g id="Layer_3" data-name="Layer 3">
+            <polygon class="cls-1" points="727.24 1435.13 977.63 1465.4 1396.79 1292.97 1173.91 1269.12 727.24 1435.13"/>
+            <polygon class="cls-1" points="972.13 957.96 996.89 1109.99 1141.35 1087.29 1286.5 1088.66 1256.92 957.96 1221.15 953.83 1212.89 920.13 972.13 957.96"/>
+          </g>
+          <g id="Layer_4" data-name="Layer 4">
+            <polyline class="cls-1 area-link" data-link="https://d2zo9ma9cc3dd8.cloudfront.net/v1-31/index.html" points="355.77 152.2 517.89 191.87 522.7 979.06 448.64 919.44 355.77 153.35"/>
+          </g>
+        </svg>
+      </div>
       <div class="wrapper">
         <div class="ipad">
           <div class="camera"></div>
@@ -207,7 +234,11 @@
                 
               </li> -->
               <li>
-                <a href="https://web.stanford.edu/~davies/Symbsys100-Spring0708/Marx-Commodity-Fetishism.pdf">The Fetishism of Commodities and the Secret Thereof by Karl Marx (1867)</a>
+                <a
+                  href="https://web.stanford.edu/~davies/Symbsys100-Spring0708/Marx-Commodity-Fetishism.pdf"
+                  >The Fetishism of Commodities and the Secret Thereof by Karl
+                  Marx (1867)</a
+                >
               </li>
               <li>
                 <a href="muse.html">Extra Medium | John Muse: Projection Documentation (2023)</a>
@@ -220,7 +251,6 @@
           </div>
         </div>
       </div>
-    
     </div>
     <script>
       const wrapper = document.querySelector(".wrapper");
@@ -244,7 +274,7 @@
       });
       page.addEventListener("click", function (e) {
         const target = e.target;
-        if (!target.closest('.wrapper')) {
+        if (!target.closest(".wrapper")) {
           wrapper.classList.remove("up");
         }
       });
@@ -252,6 +282,13 @@
         e.stopPropagation();
         iframe.classList.remove("vissible");
         listLink.classList.remove("hide");
+      });
+      const areaLinks = document.querySelectorAll(".area-link");
+      areaLinks.forEach((area) => {
+        area.addEventListener("click", function () {
+          const link = this.getAttribute("data-link");
+            window.location.href = link;
+        });
       });
     </script>
   </body>
